@@ -39,6 +39,18 @@ router.post("/login", async (req, res) => {
     }); 
 });
 
+//making sure there aren't two users with the same username
+router.post("/repeat", async(req, res) => {
+    const {username, password} = req.body;
+    const user = await Users.findOne({where: {username: username}});
+
+    if(user) {
+        return
+    } else {
+        return res.json({error: "User Already Exists."})
+    }
+})
+
 //this route is just to check if we're authenticated or not
 router.get("/auth", validateToken, (req, res) => {
     res.json(req.user);
