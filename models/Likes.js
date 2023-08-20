@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    //variable that represents our model
+    //model for likes table
     const Likes = sequelize.define("Likes");
 
     

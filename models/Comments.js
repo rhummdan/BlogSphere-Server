@@ -1,9 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
 
-    //variable that represents our model
+    //model for comments table
     const Comments = sequelize.define("Comments", {
         
-        //username col
         commentBody: {
             type: DataTypes.STRING,
             allowNull: false,

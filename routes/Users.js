@@ -67,7 +67,7 @@ router.get("/basicinfo/:id", async (req, res) => {
 });
 
 router.put("/changepassword", validateToken, async (req, res) => {
-    //destructor req.body. both passwords have to be passed exactly like the keys below or else it won't work
+    //destructor req.body both passwords have to be passed exactly like the keys below or else it won't work
     const {oldPassword, newPassword} = req.body;
     const user = await Users.findOne({where: {username: req.user.username}});
 

@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
         },
     });
 
-    //comment out for now because we havent adjusted post table to fit this
 
     Users.associate = (models) => {
 
