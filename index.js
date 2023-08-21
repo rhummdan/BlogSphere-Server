@@ -3,6 +3,7 @@ const express = require('express')
 //variable "app" is equal to an instance of express. Allows us to make API requests, initialize server
 const app = express()
 const cors = require('cors'); //import cors from the cors library
+require("dotenv").config();
 //
 //Access the body being parced directly
 app.use(express.json());
@@ -29,10 +30,14 @@ app.use("/likes", likesRouter);
 db.sequelize.sync().then(() => {
     //starting API and determine the port that we want to run our server in.
     //This port must be different than the one we initizlize in the react application
-    app.listen(3001, () =>  {
+
+    //process.env.PORT tells heroku to run on their port if deployed
+    app.listen(process.env.PORT || 3001, () =>  {
         //function runs whenever the server starts. gives us confirmation that server is running
         console.log("Server running on port 3001")
     });
 })
-
+.catch((err) => {
+    console.log(err);
+})
 
