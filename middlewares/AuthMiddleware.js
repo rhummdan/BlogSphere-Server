@@ -11,7 +11,7 @@ const validateToken = (req, res, next) => {
     try {
         //valid token is an object containing user info
         const validToken = verify(accessToken, "importantsecret"); 
-        req.user = validToken; //creating object variable in the req object which contains user info
+        req.user = validToken; //user info will now be accessible with req.user 
         if(validToken) {
             return next();
         }
